@@ -1,6 +1,6 @@
 //
-//  SliderView.swift
-//  SliderView
+//  LPSliderView.swift
+//  LPSliderView
 //
 //  Created by Tony on 2017/8/2.
 //  Copyright © 2017年 Tony. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SliderView: UIView, UIScrollViewDelegate {
+public class LPSliderView: UIView, UIScrollViewDelegate {
     
     /// 视图切换闭包回调
     public var viewChangeClosure: ((Int) -> Void)?
@@ -32,13 +32,13 @@ public class SliderView: UIView, UIScrollViewDelegate {
     /// 标题按钮字体颜色（普通状态）
     public var titleNormalColor = UIColor.black
     /// 标题按钮字体颜色（选中状态）
-    public var titleSelectedColor = UIColor.MainColor
+    public var titleSelectedColor = UIColor(red: 74/255.0, green: 163/255.0, blue: 243/255.0, alpha: 1.0)
     /// 分割线颜色
-    public var lineColor = UIColor.LineColor
+    public var lineColor = UIColor(red: 221.0/255.0, green: 221.0/255.0, blue: 221.0/255.0, alpha: 1.0)
     /// 分割线大小(宽度或高度)
     public var lineSize: CGFloat = 1
     /// 底部滑条颜色
-    public var sliderColor = UIColor.MainColor
+    public var sliderColor = UIColor(red: 74/255.0, green: 163/255.0, blue: 243/255.0, alpha: 1.0)
     /// 底部滑条高度
     public var sliderHeight: CGFloat = 2
     /// 底部滑条宽度
@@ -104,13 +104,13 @@ public class SliderView: UIView, UIScrollViewDelegate {
     // 标题按钮视图
     private func maketopView() {
         
-        topView.frame = CGRect(x: 0, y: 0, width: Int(self.width), height: topViewHeight)
+        topView.frame = CGRect(x: 0, y: 0, width: Int(self.bounds.width), height: topViewHeight)
         topView.backgroundColor = UIColor.white
         self.addSubview(topView)
         
         // 标题按钮
-        let btnW = topView.width / CGFloat(subViewCount)
-        let btnH = topView.height
+        let btnW = topView.bounds.width / CGFloat(subViewCount)
+        let btnH = topView.bounds.height
         for i in 0 ..< subViewCount {
             let btnX = CGFloat(i) * btnW
             let button = UIButton(frame: CGRect(x: btnX, y: 0, width: btnW, height: btnH))
@@ -129,7 +129,7 @@ public class SliderView: UIView, UIScrollViewDelegate {
             
             // 按钮之间竖直分割线
             if isShowVerticalLine {
-                let lineView = UIView(frame: CGRect(x: button.right, y: button.height * 0.2, width: lineSize, height: button.height * 0.6))
+                let lineView = UIView(frame: CGRect(x: button.frame.maxX, y: button.bounds.height * 0.2, width: lineSize, height: button.bounds.height * 0.6))
                 lineView.backgroundColor = lineColor
                 topView.addSubview(lineView)
             }
@@ -137,15 +137,15 @@ public class SliderView: UIView, UIScrollViewDelegate {
         
         // 底部分割线
         if isShowHorizontalLine {
-            let bottomLineView = UIView(frame: CGRect(x: 0, y: topView.height - lineSize, width: topView.width, height: lineSize))
+            let bottomLineView = UIView(frame: CGRect(x: 0, y: topView.bounds.height - lineSize, width: topView.bounds.width, height: lineSize))
             bottomLineView.backgroundColor = lineColor
             topView.addSubview(bottomLineView)
         }
         
         // 底部滑条
-        let sliderViewW = sliderWidth == 0 ?  topView.width / CGFloat(subViewCount) : sliderWidth
+        let sliderViewW = sliderWidth == 0 ?  topView.bounds.width / CGFloat(subViewCount) : sliderWidth
         let sliderViewX = (btnW - sliderViewW) / 2.0
-        sliderView.frame = CGRect(x: sliderViewX, y: topView.height - sliderHeight, width: sliderViewW, height: sliderHeight)
+        sliderView.frame = CGRect(x: sliderViewX, y: topView.bounds.height - sliderHeight, width: sliderViewW, height: sliderHeight)
         sliderView.backgroundColor = sliderColor
         topView.addSubview(sliderView)
     }
@@ -153,23 +153,23 @@ public class SliderView: UIView, UIScrollViewDelegate {
     // 填充子视图
     private func addContentView() {
         
-        scrollView.frame = CGRect(x: 0, y: topView.bottom, width: self.width, height: self.height - topView.height)
+        scrollView.frame = CGRect(x: 0, y: topView.frame.maxY, width: self.bounds.width, height: self.bounds.height - topView.bounds.height)
         scrollView.delegate = self
-        scrollView.backgroundColor = UIColor.GrayColor
+        scrollView.backgroundColor = UIColor(red: 242/255.0, green: 243/255.0, blue: 248/255.0, alpha: 1.0)
         scrollView.bounces = isBounces
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isScrollEnabled = isAllowHandleScroll
-        scrollView.contentSize = CGSize(width: self.width * CGFloat(subViewCount), height: 0)
+        scrollView.contentSize = CGSize(width: self.bounds.width * CGFloat(subViewCount), height: 0)
         self.addSubview(scrollView)
         
         for i in 0 ..< subViewCount {
             let view = contentViews[i]
-            let viewX = CGFloat(i) * scrollView.width
-            view.frame = CGRect(x: viewX, y: 0, width: scrollView.width, height: scrollView.height)
+            let viewX = CGFloat(i) * scrollView.bounds.width
+            view.frame = CGRect(x: viewX, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
             scrollView.addSubview(view)
         }
-        scrollView.contentOffset = CGPoint(x: CGFloat(selectedIndex) * scrollView.width, y: 0)
+        scrollView.contentOffset = CGPoint(x: CGFloat(selectedIndex) * scrollView.bounds.width, y: 0)
     }
     
     
@@ -194,7 +194,7 @@ public class SliderView: UIView, UIScrollViewDelegate {
         // 视图滚动
         UIView.animate(withDuration: 0.25) {
             let num = btn.tag - self.BaseTag
-            self.scrollView.contentOffset = CGPoint(x: self.scrollView.width * CGFloat(num), y: 0)
+            self.scrollView.contentOffset = CGPoint(x: self.scrollView.bounds.width * CGFloat(num), y: 0)
         }
     }
     
@@ -202,15 +202,15 @@ public class SliderView: UIView, UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         // 滑条滚动
-        let itemWidth = scrollView.width / CGFloat(subViewCount)
-        let xoffset = (itemWidth / scrollView.width) * scrollView.contentOffset.x
+        let itemWidth = scrollView.bounds.width / CGFloat(subViewCount)
+        let xoffset = (itemWidth / scrollView.bounds.width) * scrollView.contentOffset.x
         sliderView.transform = CGAffineTransform(translationX: xoffset, y: 0)
     }
     
     // 滚动结束
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        let index = Int(scrollView.contentOffset.x / scrollView.width)
+        let index = Int(scrollView.contentOffset.x / scrollView.bounds.width)
         let btn = topView.viewWithTag(index + BaseTag) as! UIButton
         // 切换选中按钮
         changeSelectedBtn(btn: btn)

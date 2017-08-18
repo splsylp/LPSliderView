@@ -28,7 +28,7 @@
         <!--首页-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SliderView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LPSliderView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -53,7 +53,7 @@
         <!--xib使用demo-->
         <scene sceneID="w9B-JK-qVZ">
             <objects>
-                <viewController title="xib使用demo" id="Scr-kI-a5q" customClass="XibDemoController" customModule="SliderView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="xib使用demo" id="Scr-kI-a5q" customClass="XibDemoController" customModule="LPSliderView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qpW-y1-Z2o"/>
                         <viewControllerLayoutGuide type="bottom" id="Akj-tI-J1C"/>
@@ -62,7 +62,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DfF-LE-P8R" customClass="SliderView" customModule="SliderView" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DfF-LE-P8R" customClass="LPSliderView" customModule="LPSliderView" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>

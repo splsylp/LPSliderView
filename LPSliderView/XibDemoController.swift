@@ -1,6 +1,6 @@
 //
 //  XibDemoController.swift
-//  SliderView
+//  LPSliderView
 //
 //  Created by Tony on 2017/8/18.
 //  Copyright © 2017年 Tony. All rights reserved.
@@ -10,7 +10,7 @@ import UIKit
 
 class XibDemoController: UIViewController {
 
-    @IBOutlet weak var sliderView: SliderView!
+    @IBOutlet weak var sliderView: LPSliderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4579A88A1F31977D0077B055"
-               BuildableName = "SliderView.app"
-               BlueprintName = "SliderView"
-               ReferencedContainer = "container:SliderView.xcodeproj">
+               BuildableName = "LPSliderView.app"
+               BlueprintName = "LPSliderView"
+               ReferencedContainer = "container:LPSliderView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4579A89E1F31977D0077B055"
-               BuildableName = "SliderViewTests.xctest"
-               BlueprintName = "SliderViewTests"
-               ReferencedContainer = "container:SliderView.xcodeproj">
+               BuildableName = "LPSliderViewTests.xctest"
+               BlueprintName = "LPSliderViewTests"
+               ReferencedContainer = "container:LPSliderView.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4579A8A91F31977D0077B055"
-               BuildableName = "SliderViewUITests.xctest"
-               BlueprintName = "SliderViewUITests"
-               ReferencedContainer = "container:SliderView.xcodeproj">
+               BuildableName = "LPSliderViewUITests.xctest"
+               BlueprintName = "LPSliderViewUITests"
+               ReferencedContainer = "container:LPSliderView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4579A88A1F31977D0077B055"
-            BuildableName = "SliderView.app"
-            BlueprintName = "SliderView"
-            ReferencedContainer = "container:SliderView.xcodeproj">
+            BuildableName = "LPSliderView.app"
+            BlueprintName = "LPSliderView"
+            ReferencedContainer = "container:LPSliderView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4579A88A1F31977D0077B055"
-            BuildableName = "SliderView.app"
-            BlueprintName = "SliderView"
-            ReferencedContainer = "container:SliderView.xcodeproj">
+            BuildableName = "LPSliderView.app"
+            BlueprintName = "LPSliderView"
+            ReferencedContainer = "container:LPSliderView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4579A88A1F31977D0077B055"
-            BuildableName = "SliderView.app"
-            BlueprintName = "SliderView"
-            ReferencedContainer = "container:SliderView.xcodeproj">
+            BuildableName = "LPSliderView.app"
+            BlueprintName = "LPSliderView"
+            ReferencedContainer = "container:LPSliderView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

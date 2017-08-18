@@ -1,6 +1,6 @@
 //
 //  OneController.swift
-//  SliderView
+//  LPSliderView
 //
 //  Created by Tony on 2017/8/2.
 //  Copyright © 2017年 Tony. All rights reserved.
@@ -13,7 +13,7 @@ class OneController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.GrayColor
+        view.backgroundColor = UIColor(red: 242/255.0, green: 243/255.0, blue: 248/255.0, alpha: 1.0)
     }
     
     override func didReceiveMemoryWarning() {

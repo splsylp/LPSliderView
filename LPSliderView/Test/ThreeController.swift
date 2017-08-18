@@ -1,6 +1,6 @@
 //
 //  ThreeController.swift
-//  SliderView
+//  LPSliderView
 //
 //  Created by Tony on 2017/8/2.
 //  Copyright © 2017年 Tony. All rights reserved.
@@ -15,8 +15,7 @@ class ThreeController: UIViewController {
 
         view.backgroundColor = UIColor.white
         
-        let redBtn = UIButton(frame: CGRect(x: 0, y: 100, width: 200, height: 100))
-        redBtn.centerX = view.centerX
+        let redBtn = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
         redBtn.backgroundColor = UIColor.red
         redBtn.setTitle("切换至第一个视图", for: .normal)
         redBtn.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)

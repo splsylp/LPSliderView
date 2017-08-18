@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  SliderView
+//  LPSliderView
 //
 //  Created by Tony on 2017/8/2.
 //  Copyright © 2017年 Tony. All rights reserved.
@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var sliderView: SliderView!
+    var sliderView: LPSliderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,10 @@ class ViewController: UIViewController {
         let contentViews: [UIView] = [one.view, two.view, three.view]
         
         // 初始化方式一：（推荐）
-        sliderView = SliderView(frame: frame, titles: titles, contentViews: contentViews)
+        sliderView = LPSliderView(frame: frame, titles: titles, contentViews: contentViews)
         
         // 初始化方式二：
-//        sliderView = SliderView()
+//        sliderView = LPSliderView()
 //        sliderView.frame = frame
 //        sliderView.titles = titles
 //        sliderView.contentViews = contentViews
