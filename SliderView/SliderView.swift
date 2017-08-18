@@ -10,6 +10,8 @@ import UIKit
 
 public class SliderView: UIView, UIScrollViewDelegate {
     
+    /// 视图切换闭包回调
+    public var viewChangeClosure: ((Int) -> Void)?
     /// 视图标题数组
     public var titles = [String]()
     /// 视图数组
@@ -225,6 +227,10 @@ public class SliderView: UIView, UIScrollViewDelegate {
         if isShowBtnAnimation {
             scaleAnimationTitleBtn(btn: btn)
         }
+        
+        // 回调
+        let index = btn.tag - BaseTag
+        viewChangeClosure?(index)
     }
     
     // 按钮缩放动画

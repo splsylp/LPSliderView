@@ -28,6 +28,11 @@ class XibDemoController: UIViewController {
         
         sliderView.titles = ["One", "Two"]
         sliderView.contentViews = [one.view, two.view]
+        
+        // 视图切换闭包回调（可选。。。）
+        sliderView.viewChangeClosure = { index in
+            print("视图切换，下标---", index)
+        }
     }
 
 }

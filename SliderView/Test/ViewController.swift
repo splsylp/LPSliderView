@@ -35,6 +35,11 @@ class ViewController: UIViewController {
 //        sliderView.titles = titles
 //        sliderView.contentViews = contentViews
         
+        // 视图切换闭包回调（可选。。。）
+        sliderView.viewChangeClosure = { index in
+            print("视图切换，下标---", index)
+        }
+        
         sliderView.selectedIndex = 1 // 默认选中第2个
         view.addSubview(sliderView)
         
