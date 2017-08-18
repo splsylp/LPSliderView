@@ -8,8 +8,12 @@
 
 import UIKit
 
-class SliderView: UIView, UIScrollViewDelegate {
+public class SliderView: UIView, UIScrollViewDelegate {
     
+    /// 视图标题数组
+    public var titles = [String]()
+    /// 视图数组
+    public var contentViews = [UIView]()
     /// 当前被选中视图下标
     public var selectedIndex = 0 {
         didSet{
@@ -19,15 +23,14 @@ class SliderView: UIView, UIScrollViewDelegate {
             }
         }
     }
-    
     /// 头部标题视图高度
     public var topViewHeight = 50
     /// 标题按钮字体大小
-    public var btnFontSize: CGFloat = 17
+    public var titleFontSize: CGFloat = 17
     /// 标题按钮字体颜色（普通状态）
-    public var btnFontColorNormal = UIColor.black
+    public var titleNormalColor = UIColor.black
     /// 标题按钮字体颜色（选中状态）
-    public var btnFontColorSelected = UIColor.MainColor
+    public var titleSelectedColor = UIColor.MainColor
     /// 分割线颜色
     public var lineColor = UIColor.LineColor
     /// 分割线大小(宽度或高度)
@@ -50,9 +53,6 @@ class SliderView: UIView, UIScrollViewDelegate {
     /// 是否显示按钮底部的水平分割线
     public var isShowHorizontalLine = true
     
-    
-    private var titles = [String]()
-    private var contentViews = [UIView]()
     private var subViewCount = 0 // 自视图个数
     private var BaseTag = 1000
     private var selectedBtn = UIButton() // 当前被选中的按钮
@@ -62,29 +62,35 @@ class SliderView: UIView, UIScrollViewDelegate {
     
     convenience init(frame: CGRect, titles: [String], contentViews: [UIView]) {
         self.init(frame: frame)
+        self.titles = titles
+        self.contentViews = contentViews
+    }
+    
+    public override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         assert(titles.count == contentViews.count, "标题个数和自视图个数不相等！")
         assert(titles.count != 0, "自视图个数为0！")
-        
-        self.titles = titles
-        self.contentViews = contentViews
         subViewCount = titles.count
-    }
-    
-    override func draw(_ rect: CGRect) {
+        
         makeUI()
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        makeUI()
     }
     
     
     private func makeUI() {
+        
+        if subViewCount == 0 {
+            return
+        }
         
         // 顶部视图
         maketopView()
@@ -107,9 +113,9 @@ class SliderView: UIView, UIScrollViewDelegate {
             let btnX = CGFloat(i) * btnW
             let button = UIButton(frame: CGRect(x: btnX, y: 0, width: btnW, height: btnH))
             button.setTitle(titles[i], for: .normal)
-            button.setTitleColor(btnFontColorNormal, for: .normal)
-            button.setTitleColor(btnFontColorSelected, for: .disabled)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: btnFontSize)
+            button.setTitleColor(titleNormalColor, for: .normal)
+            button.setTitleColor(titleSelectedColor, for: .disabled)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: titleFontSize)
             button.tag = i + BaseTag
             button.addTarget(self, action: #selector(titleBtnClicked(btn:)), for: .touchUpInside)
             topView.addSubview(button)
@@ -191,7 +197,7 @@ class SliderView: UIView, UIScrollViewDelegate {
     }
     
     // 滚动监听
-    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         // 滑条滚动
         let itemWidth = scrollView.width / CGFloat(subViewCount)
@@ -200,7 +206,7 @@ class SliderView: UIView, UIScrollViewDelegate {
     }
     
     // 滚动结束
-    internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         let index = Int(scrollView.contentOffset.x / scrollView.width)
         let btn = topView.viewWithTag(index + BaseTag) as! UIButton
