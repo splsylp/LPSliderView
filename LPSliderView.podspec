@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/splsylp/LPSliderView.git", :tag => "1.1.0" }
-  s.source_files = "LPSliderView/Source/*.swift"
+  s.source_files = "LPSliderView/Source/**/*"
   
   s.frameworks = "UIKit"
   s.requires_arc = true
