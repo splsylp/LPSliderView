@@ -1,4 +1,4 @@
-# SliderView
+# LPSliderView
 #### 自定义分段标签滚动视图，集成使用简单。
 
 ### 实现功能
@@ -23,13 +23,13 @@ addChildViewController(one)
 addChildViewController(two)
 addChildViewController(three)
 
-let sliderView = SliderView(frame: sliderFrame, titles: ["今天", "天气", "不错"], contentViews: [one.view, two.view, three.view])
+let sliderView = LPSliderView(frame: sliderFrame, titles: ["今天", "天气", "不错"], contentViews: [one.view, two.view, three.view])
 view.addSubview(sliderView)
 ```
 
 ###### 2）storyboard、xib加载
 ```Swift
-1、在视图上添加一个UIView，并设置类为SliderView，然后把视图关联到代码中
+1、在视图上添加一个UIView，并设置父类为LPSliderView，然后把视图关联到代码中
 2、配置视图属性
 sliderView.titles = ["One", "Two"]
 sliderView.contentViews = [one.view, two.view]
