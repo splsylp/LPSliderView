@@ -129,6 +129,9 @@ public var isShowHorizontalLine = true
 - 1.1.0 
   - 增加storyboard方式加载视图
   - 增加视图切换闭包回调
+- 1.2.0
+  - 支持pod导入
+
 ---
 
 ### 您的star，是对我最大的鼓励与支持~
