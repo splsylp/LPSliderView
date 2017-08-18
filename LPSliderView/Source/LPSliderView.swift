@@ -62,7 +62,7 @@ public class LPSliderView: UIView, UIScrollViewDelegate {
     private var sliderView =  UIView() // 底部滑条
     private var scrollView = RecognizerScrollView() // 滚动视图
     
-    convenience init(frame: CGRect, titles: [String], contentViews: [UIView]) {
+    public convenience init(frame: CGRect, titles: [String], contentViews: [UIView]) {
         self.init(frame: frame)
         self.titles = titles
         self.contentViews = contentViews

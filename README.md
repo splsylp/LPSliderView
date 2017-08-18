@@ -1,16 +1,46 @@
 # LPSliderView
 #### 自定义分段标签滚动视图，集成使用简单。
 
+![image](https://github.com/splsylp/SliderView/blob/master/SliderView.gif)
+
 ### 实现功能
 * 支持默认选中及更改选中某个视图
 * 实现视图切换后闭包回调
 * 解决滚动视图跟其他滑动手势冲突问题
 * 外部调用样式属性多，便于更改分段标题头部样式
 * 支持storyboard、xib方式加载视图
-
-![image](https://github.com/splsylp/SliderView/blob/master/SliderView.gif )
+* 支持pod导入
 
 ---
+
+### 安装
+
+#### CocoaPods
+Podfile文件:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'LPSliderView'
+end
+```
+
+然后执行:
+
+```bash
+$ pod install
+```
+若提示查找不到该库，那么请先执行：
+```bash
+$ pod setup
+```
+
+#### 手动集成
+把LPSliderView/Source文件夹(及其下的swift文件)手动拖入到项目中即可
+
 
 ### 使用
 ##### 初始化
