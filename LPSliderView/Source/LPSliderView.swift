@@ -123,7 +123,7 @@ public class LPSliderView: UIView, UIScrollViewDelegate {
             }
             
             // 按钮之间竖直分割线
-            if isShowVerticalLine {
+            if isShowVerticalLine, i != subViewCount - 1 {
                 let lineView = UIView(frame: CGRect(x: button.frame.maxX, y: button.bounds.height * 0.2, width: lineSize, height: button.bounds.height * 0.6))
                 lineView.backgroundColor = lineColor
                 topView.addSubview(lineView)
