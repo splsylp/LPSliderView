@@ -131,7 +131,8 @@ public var isShowHorizontalLine = true
   - 增加视图切换闭包回调
 - 1.2.0
   - 支持pod导入
-
+- 1.2.1
+  - 修复当app在后台较长时间放置后标题按钮出现重影的问题
 ---
 
 ### 您的star，是对我最大的鼓励与支持~
