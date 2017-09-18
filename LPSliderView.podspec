@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LPSliderView"
-  s.version      = "1.1.0"
+  s.version      = "1.2.1"
   s.summary      = "自定义分段标签滚动视图-Swift"
   #s.description  = ""
     
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author       = { "Tony" => "961505161@qq.com" }
 
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/splsylp/LPSliderView.git", :tag => "1.1.0" }
+  s.source       = { :git => "https://github.com/splsylp/LPSliderView.git", :tag => "1.2.1" }
   s.source_files = "LPSliderView/Source/**/*"
   
   s.frameworks = "UIKit"
