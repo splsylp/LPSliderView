@@ -18,7 +18,7 @@ public class LPSliderView: UIView, UIScrollViewDelegate {
     public var contentViews = [UIView]()
     /// 当前被选中视图下标
     public var selectedIndex = 0 {
-        didSet{
+        didSet {
             if self.subviews.count > 0 {
                 assert(selectedIndex < subViewCount, "下标越界！子视图并没有这么多！")
                 changeView()
@@ -55,7 +55,7 @@ public class LPSliderView: UIView, UIScrollViewDelegate {
     /// 是否显示按钮底部的水平分割线
     public var isShowHorizontalLine = true
     
-    private var subViewCount = 0 // 自视图个数
+    private var subViewCount = 0 // 子视图个数
     private var BaseTag = 1000
     private var selectedBtn = UIButton() // 当前被选中的按钮
     private var topView = UIView() // 头部标题按钮视图
@@ -70,11 +70,9 @@ public class LPSliderView: UIView, UIScrollViewDelegate {
     
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
-        
-        assert(titles.count == contentViews.count, "标题个数和自视图个数不相等！")
-        assert(titles.count != 0, "自视图个数为0！")
+        assert(titles.count == contentViews.count, "标题个数和子视图个数不相等！")
+        assert(titles.count != 0, "子视图个数为0！")
         subViewCount = titles.count
-        
         makeUI()
     }
     
@@ -84,19 +82,14 @@ public class LPSliderView: UIView, UIScrollViewDelegate {
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        makeUI()
     }
-    
     
     private func makeUI() {
         
-        if subViewCount == 0 {
-            return
-        }
+        guard subViewCount > 0 else {return}
         
         // 顶部视图
         maketopView()
-        
         // 子视图
         addContentView()
     }
@@ -107,6 +100,8 @@ public class LPSliderView: UIView, UIScrollViewDelegate {
         topView.frame = CGRect(x: 0, y: 0, width: Int(self.bounds.width), height: topViewHeight)
         topView.backgroundColor = UIColor.white
         self.addSubview(topView)
+        
+        _ = topView.subviews.map { $0.removeFromSuperview() }
         
         // 标题按钮
         let btnW = topView.bounds.width / CGFloat(subViewCount)
